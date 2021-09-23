@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{38018028-E664-488B-B899-081A329E7978}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Services", "OnionApp.Services\OnionApp.Domain.Services.csproj", "{DA54A7E1-8294-4DA3-A92E-7C12525C1726}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Services", "OnionApp.Domain.Services\OnionApp.Domain.Services.csproj", "{DA54A7E1-8294-4DA3-A92E-7C12525C1726}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Entities", "OnionApp.Entities\OnionApp.Domain.Entities.csproj", "{230DCAA0-57F6-4A11-8314-540BC61C302A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Entities", "OnionApp.Domain.Entities\OnionApp.Domain.Entities.csproj", "{230DCAA0-57F6-4A11-8314-540BC61C302A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppServices", "AppServices", "{C7533150-B427-49EE-86A9-7C27C2FB4121}"
 EndProject
@@ -21,15 +21,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messaging", "Messaging", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{F2CAAD61-49E3-4B40-9F83-BCCEA7BED149}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.AppServices.Api", "OnionApp.AppServices.Business\OnionApp.AppServices.Api.csproj", "{86887EED-7BAA-492B-BE12-5B1AA39B0B33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.AppServices.Api", "OnionApp.AppServices.Api\OnionApp.AppServices.Api.csproj", "{86887EED-7BAA-492B-BE12-5B1AA39B0B33}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.AppServices.Repository", "OnionApp.AppServices.Repository\OnionApp.AppServices.Repository.csproj", "{AB6F203B-F744-4DDC-BF36-BE844DEBBC1E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.Db.MainDb", "OnionApp.ExternalServices.Database\OnionApp.Infra.Db.MainDb.csproj", "{2E56B338-FAEF-412F-BF8D-0E0415BE6561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.Db.MainDb", "OnionApp.Infra.Db.MainDb\OnionApp.Infra.Db.MainDb.csproj", "{2E56B338-FAEF-412F-BF8D-0E0415BE6561}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.Storage", "OnionApp.ExternalServices.Storage\OnionApp.Infra.Storage.csproj", "{3AD266FC-E8C7-4B0B-B7EC-654A68579684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.Storage", "OnionApp.Infra.Storage\OnionApp.Infra.Storage.csproj", "{3AD266FC-E8C7-4B0B-B7EC-654A68579684}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.EventBus", "OnionApp.ExternalServices.EventBus\OnionApp.Infra.EventBus.csproj", "{38D7448D-BCE8-4DF0-B916-9BC6D7F676E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.EventBus", "OnionApp.Infra.EventBus\OnionApp.Infra.EventBus.csproj", "{38D7448D-BCE8-4DF0-B916-9BC6D7F676E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.Ui.Api", "OnionApp.Ui.Api\OnionApp.Ui.Api.csproj", "{51464E73-BA69-43D8-A886-FF0016473578}"
 EndProject

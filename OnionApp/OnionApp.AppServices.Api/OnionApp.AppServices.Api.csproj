@@ -6,8 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj" />
-    <ProjectReference Include="..\OnionApp.Entities\OnionApp.Domain.Entities.csproj" />
-    <ProjectReference Include="..\OnionApp.Services\OnionApp.Domain.Services.csproj" />
+    <ProjectReference Include="..\OnionApp.Domain.Entities\OnionApp.Domain.Entities.csproj" />
+    <ProjectReference Include="..\OnionApp.Domain.Services\OnionApp.Domain.Services.csproj" />
   </ItemGroup>
 
 </Project>
