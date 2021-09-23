@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj" />
+    <ProjectReference Include="..\OnionApp.Entities\OnionApp.Domain.Entities.csproj" />
+    <ProjectReference Include="..\OnionApp.Services\OnionApp.Domain.Services.csproj" />
+  </ItemGroup>
+
+</Project>

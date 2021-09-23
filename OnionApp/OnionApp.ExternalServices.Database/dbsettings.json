@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "MainDbContext": "Server=.;Database=MainDb;Integrated Security=true;"
+  }
+}
