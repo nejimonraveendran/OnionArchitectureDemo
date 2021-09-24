@@ -1,6 +1,6 @@
-﻿using OnionApp.AppServices.Api.Interfaces;
-using OnionApp.AppServices.Api.ViewModels.Input;
-using OnionApp.AppServices.Api.ViewModels.Output;
+﻿using OnionApp.AppServices.Common.ApiServices.DTOs.Input;
+using OnionApp.AppServices.Common.ApiServices.DTOs.Output;
+using OnionApp.AppServices.Common.ApiServices.Interfaces;
 using OnionApp.CrossCutting.Logging.Interfaces;
 using OnionApp.Domain.Entities;
 using OnionApp.Domain.Services.RepoServices;
@@ -9,20 +9,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OnionApp.AppServices.Api.Implementations
+namespace OnionApp.AppServices.Api
 {
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IWebLogger _logger;
+        private readonly IAppLogger _logger;
 
-        public UserService(IUserRepository userRepository, IWebLogger logger)
+        public UserService(IUserRepository userRepository, IAppLogger logger)
         {
             _userRepository = userRepository;
             _logger = logger;
         }
 
-        public void AddUser(UserInputVM user)
+        public void AddUser(UserInputDto user)
         {
             _userRepository.AddUser(new UserEntity { Id = user.Id, Name = user.Name });
             _userRepository.SaveChanges();
@@ -30,10 +30,10 @@ namespace OnionApp.AppServices.Api.Implementations
             _logger.Info($"User created, Id: {user.Id}, name: {user.Name}");
         }
 
-        public IQueryable<UserOutputVM> GetAllUsers()
+        public IQueryable<UserOutputDto> GetAllUsers()
         {
             _logger.Info("GetAllUsers called");
-            return _userRepository.GetAllUsers().Select(x => new UserOutputVM { Id = x.Id, UserName = x.Name });
+            return _userRepository.GetAllUsers().Select(x => new UserOutputDto { Id = x.Id, UserName = x.Name });
         }
     }
 }

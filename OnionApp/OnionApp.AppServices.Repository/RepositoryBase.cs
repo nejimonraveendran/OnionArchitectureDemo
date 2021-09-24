@@ -1,4 +1,4 @@
-﻿using OnionApp.AppServices.Repository.DataContextInterfaces;
+﻿using OnionApp.AppServices.Common.DbInterfaces;
 using OnionApp.Domain.Services.RepoServices;
 using System;
 using System.Collections.Generic;

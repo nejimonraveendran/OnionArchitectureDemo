@@ -2,7 +2,7 @@
 
 namespace OnionApp.CrossCutting.Logging.Interfaces
 {
-    public interface IWebLogger
+    public interface IAppLogger
     {
         void Info(string message);
         void Warning(string message);

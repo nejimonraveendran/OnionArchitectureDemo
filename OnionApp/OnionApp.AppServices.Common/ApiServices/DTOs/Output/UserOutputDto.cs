@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnionApp.AppServices.Api.ViewModels.Output
+namespace OnionApp.AppServices.Common.ApiServices.DTOs.Output
 {
-    public class UserOutputVM
+    public sealed class UserOutputDto
     {
         public int Id { get; set; }
         public string UserName { get; set; }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnionApp.AppServices.Api.ViewModels.Input
+namespace OnionApp.AppServices.Common.ApiServices.DTOs.Input
 {
-    public class UserInputVM
+    public sealed class UserInputDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
     }
 }

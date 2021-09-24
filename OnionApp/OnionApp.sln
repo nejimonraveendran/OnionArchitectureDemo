@@ -31,11 +31,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.Storage", "O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Infra.EventBus", "OnionApp.Infra.EventBus\OnionApp.Infra.EventBus.csproj", "{38D7448D-BCE8-4DF0-B916-9BC6D7F676E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.Ui.Api", "OnionApp.Ui.Api\OnionApp.Ui.Api.csproj", "{51464E73-BA69-43D8-A886-FF0016473578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Ui.Api", "OnionApp.Ui.Api\OnionApp.Ui.Api.csproj", "{51464E73-BA69-43D8-A886-FF0016473578}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{FB3D8FFC-FD7F-45D6-8400-FD68A68FB7C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.CrossCutting.Logging", "OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj", "{C8EF9689-DA00-4DED-B25D-6D9CAD54B564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.CrossCutting.Logging", "OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj", "{C8EF9689-DA00-4DED-B25D-6D9CAD54B564}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{F1AB4EFB-75A2-4CF8-95F2-9184E242461F}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.AppServices.Common", "OnionApp.AppServices.Common\OnionApp.AppServices.Common.csproj", "{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +86,10 @@ Global
 		{C8EF9689-DA00-4DED-B25D-6D9CAD54B564}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8EF9689-DA00-4DED-B25D-6D9CAD54B564}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8EF9689-DA00-4DED-B25D-6D9CAD54B564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +107,7 @@ Global
 		{38D7448D-BCE8-4DF0-B916-9BC6D7F676E4} = {2F5151B4-F0E4-4297-B38F-34131A2FB156}
 		{51464E73-BA69-43D8-A886-FF0016473578} = {6034D87A-11F5-43DA-B5B9-1013B6FF1D46}
 		{C8EF9689-DA00-4DED-B25D-6D9CAD54B564} = {FB3D8FFC-FD7F-45D6-8400-FD68A68FB7C6}
+		{D3D24C7F-7C74-404C-AA7F-3DD865B4B0EF} = {C7533150-B427-49EE-86A9-7C27C2FB4121}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40395055-3299-47D7-B567-11760B3B25C5}

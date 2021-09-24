@@ -5,9 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using OnionApp.AppServices.Api.Implementations;
-using OnionApp.AppServices.Api.Interfaces;
-using OnionApp.AppServices.Repository.DataContextInterfaces;
 using OnionApp.Domain.Services.RepoServices;
 using OnionApp.AppServices.Repository;
 using OnionApp.Infra.Db;
@@ -18,6 +15,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnionApp.CrossCutting.Logging.Interfaces;
 using OnionApp.CrossCutting.Logging.Implementations;
+using OnionApp.AppServices.Common.DbInterfaces;
+using OnionApp.AppServices.Common.ApiServices.Interfaces;
+using OnionApp.AppServices.Api;
 
 namespace OnionApp.Ui.Api
 {
@@ -41,7 +41,14 @@ namespace OnionApp.Ui.Api
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserSqlRepository>();
 
-            services.AddScoped<IWebLogger, NLogWebSqlLogger>();
+            services.AddScoped<IAppLogger>(x => new NLogSqlLogger(new NLogSqlOptions 
+                { 
+                    InstallConnectionString = Configuration.GetConnectionString("LogsDbInstall"), //connection string used to create the logs database (need elevated DB user privileges in the connection string)
+                    ConnectionString = Configuration.GetConnectionString("LogsDb"), //connection string used to insert records into log DB
+                    LogsTableName = "Logs",
+                    CreateDatabaseIfNotExists = true, //may want to set to false in prod
+                    CreateLogsTableIfNotExists = true //may want to set to false in prod
+                }));
 
             services.AddControllers();
         }

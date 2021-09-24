@@ -32,3 +32,5 @@
 /OnionApp/OnionApp.Infra.EventBus/obj
 /OnionApp/OnionApp.Infra.Storage/bin/Debug/netcoreapp3.1
 /OnionApp/OnionApp.Infra.Storage/obj
+/OnionApp/OnionApp.AppServices.Common/bin/Debug/netcoreapp3.1
+/OnionApp/OnionApp.AppServices.Common/obj

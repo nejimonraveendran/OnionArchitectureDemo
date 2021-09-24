@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using OnionApp.AppServices.Repository.DataContextInterfaces;
+using OnionApp.AppServices.Common.DbInterfaces;
 using OnionApp.Infra.Db.MainDb.Config;
 using System;
 using System.IO;
