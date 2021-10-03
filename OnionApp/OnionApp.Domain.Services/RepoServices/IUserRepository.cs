@@ -1,4 +1,4 @@
-﻿using OnionApp.Domain.Entities;
+﻿using OnionApp.Domain.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,11 @@ namespace OnionApp.Domain.Services.RepoServices
 {
     public interface IUserRepository : IRepositoryBase
     {
-        void AddUser(UserEntity seat);
-        IQueryable<UserEntity> GetAllUsers();
+        UserEntity GetById(int id);
+        IEnumerable<UserEntity> GetAll();
+        UserEntity Add(UserEntity entity);
+        UserEntity Update(UserEntity entity);
+        UserEntity Delete(UserEntity entity);
+        
     }
 }

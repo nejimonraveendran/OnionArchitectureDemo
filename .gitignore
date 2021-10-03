@@ -34,3 +34,7 @@
 /OnionApp/OnionApp.Infra.Storage/obj
 /OnionApp/OnionApp.AppServices.Common/bin/Debug/netcoreapp3.1
 /OnionApp/OnionApp.AppServices.Common/obj
+/OnionApp/OnionApp.AppServices.Queries/bin/Debug/netcoreapp3.1
+/OnionApp/OnionApp.AppServices.Queries/obj
+/OnionApp/OnionApp.Domain.Models/bin/Debug/netcoreapp3.1
+/OnionApp/OnionApp.Domain.Models/obj

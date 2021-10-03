@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using OnionApp.AppServices.Common.DbInterfaces;
 using OnionApp.Infra.Db.MainDb.Config;
@@ -17,6 +18,7 @@ namespace OnionApp.Infra.Db
             this.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
+ 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Install-Package Microsoft.Extensions.Configuration.Json

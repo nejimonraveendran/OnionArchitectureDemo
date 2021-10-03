@@ -18,6 +18,8 @@ using OnionApp.CrossCutting.Logging.Implementations;
 using OnionApp.AppServices.Common.DbInterfaces;
 using OnionApp.AppServices.Common.ApiServices.Interfaces;
 using OnionApp.AppServices.Api;
+using OnionApp.AppServices.Common.Queries.Interfaces;
+using OnionApp.AppServices.Queries;
 
 namespace OnionApp.Ui.Api
 {
@@ -40,6 +42,8 @@ namespace OnionApp.Ui.Api
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserSqlRepository>();
+            services.AddScoped<IReportQueries, ReportQueries>();
+
 
             services.AddScoped<IAppLogger>(x => new NLogSqlLogger(new NLogSqlOptions 
                 { 
@@ -51,6 +55,8 @@ namespace OnionApp.Ui.Api
                 }));
 
             services.AddControllers();
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +66,13 @@ namespace OnionApp.Ui.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Onion App UI API");
+            });
 
             app.UseRouting();
 

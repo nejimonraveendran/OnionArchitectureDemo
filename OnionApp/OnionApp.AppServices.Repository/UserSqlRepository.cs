@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnionApp.AppServices.Common.DbInterfaces;
-using OnionApp.Domain.Entities;
+using OnionApp.Domain.Models.Entities;
 using OnionApp.Domain.Services.RepoServices;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OnionApp.AppServices.Repository
@@ -16,17 +17,33 @@ namespace OnionApp.AppServices.Repository
             _dbContext = dbContext;
         }
 
-        public void AddUser(UserEntity seat)
-        {          
-            var entity = _dbContext.Set<UserEntity>().Add(new UserEntity { Name = seat.Name });
-            entity.State = EntityState.Added;
-        }
-
-        public IQueryable<UserEntity> GetAllUsers()
+        public UserEntity GetById(int id)
         {
-            return _dbContext.Set<UserEntity>().AsQueryable();
+           return _dbContext.Set<UserEntity>().SingleOrDefault(x => x.Id == id);
         }
 
-      
+        public UserEntity Add(UserEntity entity)
+        {          
+            var entry = _dbContext.Set<UserEntity>().Add(entity);
+            //entry.State = EntityState.Added;
+            return entry.Entity;
+        }
+
+        public IEnumerable<UserEntity> GetAll()
+        {
+            return _dbContext.Set<UserEntity>().ToList();
+        }
+
+        public UserEntity Update(UserEntity entity)
+        {
+           var entry = _dbContext.Set<UserEntity>().Update(entity);
+           return entry.Entity;
+        }
+
+        public UserEntity Delete(UserEntity entity)
+        {
+            var entry = _dbContext.Set<UserEntity>().Remove(entity);
+            return entry.Entity;
+        }
     }
 }

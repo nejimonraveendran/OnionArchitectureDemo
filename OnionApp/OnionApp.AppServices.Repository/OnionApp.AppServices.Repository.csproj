@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnionApp.AppServices.Common\OnionApp.AppServices.Common.csproj" />
-    <ProjectReference Include="..\OnionApp.Domain.Entities\OnionApp.Domain.Entities.csproj" />
+    <ProjectReference Include="..\OnionApp.Domain.Models\OnionApp.Domain.Models.csproj" />
     <ProjectReference Include="..\OnionApp.Domain.Services\OnionApp.Domain.Services.csproj" />
   </ItemGroup>
 

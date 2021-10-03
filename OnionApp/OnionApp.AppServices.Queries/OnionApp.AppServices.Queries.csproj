@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnionApp.AppServices.Common\OnionApp.AppServices.Common.csproj" />
     <ProjectReference Include="..\OnionApp.Domain.Models\OnionApp.Domain.Models.csproj" />
   </ItemGroup>
 
