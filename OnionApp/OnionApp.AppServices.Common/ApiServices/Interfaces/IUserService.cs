@@ -1,5 +1,5 @@
-﻿using OnionApp.AppServices.Common.ApiServices.DTOs.Input;
-using OnionApp.AppServices.Common.ApiServices.DTOs.Output;
+﻿using OnionApp.AppServices.Common.ApiServices.Commands;
+using OnionApp.AppServices.Common.ApiServices.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace OnionApp.AppServices.Common.ApiServices.Interfaces
 {
     public interface IUserService
     {
-        void AddUser(UserInputDto seat);
-        IQueryable<UserOutputDto> GetAllUsers();
+        void AddUser(AddUserCommand command);
+        IQueryable<GetAllUsersResult> GetAllUsers();
     }
 }

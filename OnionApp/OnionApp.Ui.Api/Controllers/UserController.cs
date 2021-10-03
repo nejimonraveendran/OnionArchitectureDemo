@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using OnionApp.AppServices.Common.ApiServices.DTOs.Output;
 using OnionApp.AppServices.Common.ApiServices.Interfaces;
+using OnionApp.AppServices.Common.ApiServices.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +22,9 @@ namespace OnionApp.Ui.Api.Controllers
 
 
         [HttpGet("users")]
-        public IEnumerable<UserOutputDto> GetAllUsers()
+        public ActionResult<IEnumerable<GetAllUsersResult>> GetAllUsers()
         {
-            return _userService.GetAllUsers();
+            return Ok(_userService.GetAllUsers());
         }
     }
 }
