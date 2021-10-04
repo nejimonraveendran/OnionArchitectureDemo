@@ -22,9 +22,9 @@ namespace OnionApp.AppServices.Repository
            return _dataContext.Set<User>().SingleOrDefault(x => x.Id == id);
         }
 
-        public User AddUser(User entity)
+        public User AddUser(User user)
         {          
-            var entry = _dataContext.Set<User>().Add(entity);
+            var entry = _dataContext.Set<User>().Add(user);
             return entry.Entity;
         }
 
@@ -33,15 +33,15 @@ namespace OnionApp.AppServices.Repository
             return _dataContext.Set<User>().ToList();
         }
 
-        public User UpdateUser(User entity)
+        public User UpdateUser(User user)
         {
-           var entry = _dataContext.Set<User>().Update(entity);
+           var entry = _dataContext.Set<User>().Update(user);
            return entry.Entity;
         }
 
-        public User DeleteUser(User entity)
+        public User DeleteUser(User user)
         {
-            var entry = _dataContext.Set<User>().Remove(entity);
+            var entry = _dataContext.Set<User>().Remove(user);
             return entry.Entity;
         }
 
