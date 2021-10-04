@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnionApp.AppServices.Api;
+using OnionApp.AppServices.Api.Services;
 using OnionApp.AppServices.Common.ApiServices.Commands;
-using OnionApp.AppServices.Common.ApiServices.Interfaces;
 using OnionApp.AppServices.Common.ApiServices.Results;
-using OnionApp.AppServices.Common.Queries.Commands;
-using OnionApp.AppServices.Common.Queries.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +15,22 @@ namespace OnionApp.Ui.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly UserService _userService;
 
-        public UserController(IUserService userService)
+        public UserController(UserService userService)
         {
             _userService = userService;
         }
 
         [HttpPost("users")]
-        public ActionResult AddUser(AddUserCommand command)
+        public ActionResult AddUser(AddUserRequest command)
         {
             _userService.AddUser(command);
             return Ok("User added");
         }
 
         [HttpPut("users")]
-        public ActionResult UpdateUser(UpdateUserCommand command)
+        public ActionResult UpdateUser(UpdateUserRequest command)
         {
             _userService.UpdateUser(command);
             return Ok("User updated");
@@ -46,15 +45,11 @@ namespace OnionApp.Ui.Api.Controllers
 
 
         [HttpGet("users")]
-        public ActionResult<IEnumerable<GetAllUsersResult>> GetAllUsers()
+        public ActionResult<IEnumerable<GetAllUsersResponse>> GetAllUsers()
         {
             return Ok(_userService.GetAllUsers());
         }
 
-        [HttpGet("users/created/dateRange")]
-        public ActionResult<IEnumerable<GetAllUsersAddedFromToResult>> GetAllUsersAddedFromTo(DateTime fromDate, DateTime toDate)
-        {
-            return Ok(_userService.GetAllUsersAddedFromDateToDate(new GetAllUsersAddedFromToCommand { FromDate = fromDate, ToDate = toDate }));
-        }
+        
     }
 }

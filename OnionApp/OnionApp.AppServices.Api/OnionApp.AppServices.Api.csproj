@@ -5,9 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnionApp.AppServices.Common\OnionApp.AppServices.Common.csproj" />
     <ProjectReference Include="..\OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj" />
-    <ProjectReference Include="..\OnionApp.Domain.Services\OnionApp.Domain.Services.csproj" />
+    <ProjectReference Include="..\OnionApp.Domain.Models\OnionApp.Domain.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
   </ItemGroup>
 
 </Project>

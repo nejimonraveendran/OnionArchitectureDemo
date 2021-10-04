@@ -2,11 +2,16 @@
 
 namespace OnionApp.Domain.Models.Entities
 {
-    public class UserEntity 
+    public class UserEntity : EntityBase
     {
-        public int Id { get; set; }
+        public UserEntity()
+        {
+            Role = new RoleEntity();
+        }
+
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
-
+        public int? RoleId { get; set; }
+        public virtual RoleEntity Role { get; set; }
     }
 }

@@ -1,21 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
-using OnionApp.AppServices.Common.DbInterfaces;
+using OnionApp.AppServices.Repository.DataInterfaces;
 using OnionApp.Infra.Db.MainDb.Config;
 using System;
 using System.IO;
 
 namespace OnionApp.Infra.Db
 {
-    public sealed class MainDbContext : DbContext, IMainDbContext
+    public sealed class MainDbContext : DbContext, IDataContext
     {
         public MainDbContext() { }
 
         public MainDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
             this.ChangeTracker.LazyLoadingEnabled = false;
-            this.ChangeTracker.AutoDetectChangesEnabled = false;
+            this.ChangeTracker.AutoDetectChangesEnabled = true;
         }
 
  
@@ -41,7 +41,9 @@ namespace OnionApp.Infra.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new RoleEntityConfig());
             modelBuilder.ApplyConfiguration(new UserEntityConfig());
+            
         }
     }
 }

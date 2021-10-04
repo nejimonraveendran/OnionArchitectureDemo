@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OnionApp.Domain.Services.RepoServices
+namespace OnionApp.Domain.Models.Repos
 {
     public interface IUserRepository : IRepositoryBase
     {

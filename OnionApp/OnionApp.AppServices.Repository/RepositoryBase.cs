@@ -1,5 +1,5 @@
-﻿using OnionApp.AppServices.Common.DbInterfaces;
-using OnionApp.Domain.Services.RepoServices;
+﻿using OnionApp.AppServices.Repository.DataInterfaces;
+using OnionApp.Domain.Models.Repos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +8,11 @@ namespace OnionApp.AppServices.Repository
 {
     public class RepositoryBase : IRepositoryBase, IDisposable
     {
-        private readonly IMainDbContext _dbContext;
+        private readonly IDataContext _dataContext;
 
-        public RepositoryBase(IMainDbContext dbContext)
+        public RepositoryBase(IDataContext dataContext)
         {
-            _dbContext = dbContext;
+            _dataContext = dataContext;
         }
 
 
@@ -23,7 +23,7 @@ namespace OnionApp.AppServices.Repository
             {
                 if (disposing)
                 {
-                    _dbContext.Dispose();
+                    _dataContext.Dispose();
                 }
             }
 
@@ -38,7 +38,7 @@ namespace OnionApp.AppServices.Repository
 
         public int SaveChanges()
         {
-            return _dbContext.SaveChanges();
+            return _dataContext.SaveChanges();
         }
     }
 }

@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using OnionApp.Domain.Services.RepoServices;
-using OnionApp.AppServices.Repository;
 using OnionApp.Infra.Db;
 using System;
 using System.Collections.Generic;
@@ -15,11 +13,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnionApp.CrossCutting.Logging.Interfaces;
 using OnionApp.CrossCutting.Logging.Implementations;
-using OnionApp.AppServices.Common.DbInterfaces;
-using OnionApp.AppServices.Common.ApiServices.Interfaces;
 using OnionApp.AppServices.Api;
-using OnionApp.AppServices.Common.Queries.Interfaces;
-using OnionApp.AppServices.Queries;
+using OnionApp.Domain.Models.Repos;
+using OnionApp.AppServices.Repository;
+using OnionApp.AppServices.Api.Services;
+using OnionApp.AppServices.Repository.DataInterfaces;
 
 namespace OnionApp.Ui.Api
 {
@@ -36,13 +34,14 @@ namespace OnionApp.Ui.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<IMainDbContext, MainDbContext>(options => 
+            services.AddDbContext<IDataContext, MainDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("MainDbContext"))
             );
 
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<UserService>();
             services.AddScoped<IUserRepository, UserSqlRepository>();
-            services.AddScoped<IReportQueries, ReportQueries>();
+            services.AddScoped<IRoleRepository, RoleSqlRepository>();
+
 
 
             services.AddScoped<IAppLogger>(x => new NLogSqlLogger(new NLogSqlOptions 

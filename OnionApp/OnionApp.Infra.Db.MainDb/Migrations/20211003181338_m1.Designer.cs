@@ -10,8 +10,8 @@ using OnionApp.Infra.Db;
 namespace OnionApp.Infra.Db.MainDb.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20211003034523_m3")]
-    partial class m3
+    [Migration("20211003181338_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace OnionApp.Infra.Db.MainDb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("OnionApp.Domain.Models.Entities.RoleEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
 
             modelBuilder.Entity("OnionApp.Domain.Models.Entities.UserEntity", b =>
                 {
@@ -36,9 +54,28 @@ namespace OnionApp.Infra.Db.MainDb.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("OnionApp.Domain.Models.Entities.UserEntity", b =>
+                {
+                    b.HasOne("OnionApp.Domain.Models.Entities.RoleEntity", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("OnionApp.Domain.Models.Entities.RoleEntity", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
