@@ -13,11 +13,11 @@ namespace OnionApp.Ui.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserManagementController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly UserManagementService _userService;
 
-        public UserController(UserService userService)
+        public UserManagementController(UserManagementService userService)
         {
             _userService = userService;
         }

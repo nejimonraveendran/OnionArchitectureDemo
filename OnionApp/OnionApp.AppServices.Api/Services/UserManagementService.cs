@@ -10,67 +10,64 @@ using System.Text;
 
 namespace OnionApp.AppServices.Api.Services
 {
-    public class UserService
+    public class UserManagementService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IRoleRepository _roleRepository;
+        private readonly IUserManagementRepository _userManagementRepository;
         private readonly IAppLogger _logger;
 
-        public UserService(IUserRepository userRepository,  
-            IRoleRepository roleRepository,
+        public UserManagementService(IUserManagementRepository userRepository,  
             IAppLogger logger)
         {
-            _userRepository = userRepository;
-            _roleRepository = roleRepository;
+            _userManagementRepository = userRepository;
             _logger = logger;
         }
 
         public void AddUser(AddUserRequest request)
         {
-            var role = _roleRepository.GetById(request.RoleId);
+            var role = _userManagementRepository.GetRoleById(request.RoleId);
             if (role == null)
                 throw new InvalidOperationException("Invalid role");
 
-            var newUser = new UserEntity 
+            var newUser = new User 
             { 
                 Name = request.Name, 
                 Role = role, 
                 DateCreated = DateTime.Now 
             };
 
-            var user = _userRepository.Add(newUser);
-            _userRepository.SaveChanges();
+            var user = _userManagementRepository.AddUser(newUser);
+            _userManagementRepository.SaveChanges();
 
             _logger.Info($"User created, Id: {user.Id}, name: {request.Name}");
         }
 
         public void DeleteUser(int id)
         {
-            var user = _userRepository.GetById(id);
+            var user = _userManagementRepository.GetUserById(id);
             if (user == null)
                 throw new InvalidOperationException("Invalid user");
 
-            _userRepository.Delete(user);
-            _userRepository.SaveChanges();
+            _userManagementRepository.DeleteUser(user);
+            _userManagementRepository.SaveChanges();
 
         }
 
         public IEnumerable<GetAllUsersResponse> GetAllUsers()
         {
             _logger.Info("GetAllUsers called");
-            return _userRepository.GetAll()
+            return _userManagementRepository.GetAllUsers()
                 .Select(x => new GetAllUsersResponse { Id = x.Id, UserName = x.Name,  DateCreated = x.DateCreated});
         }
 
       
         public void UpdateUser(UpdateUserRequest request)
         {
-            var user = _userRepository.GetById(request.Id);
+            var user = _userManagementRepository.GetUserById(request.Id);
 
             if (user == null)
                 throw new InvalidOperationException("Invalid user");
 
-            var role = _roleRepository.GetById(request.Id);
+            var role = _userManagementRepository.GetRoleById(request.Id);
             if (role == null)
                 throw new InvalidOperationException("Invalid role");
 
@@ -78,8 +75,8 @@ namespace OnionApp.AppServices.Api.Services
             user.DateCreated = DateTime.Now;
             user.Role = role;
             
-            _userRepository.Update(user);
-            _userRepository.SaveChanges();
+            _userManagementRepository.UpdateUser(user);
+            _userManagementRepository.SaveChanges();
         }
     }
 }

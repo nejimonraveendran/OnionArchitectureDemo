@@ -7,9 +7,9 @@ using System.Text;
 
 namespace OnionApp.Infra.Db.MainDb.Config
 {
-    class RoleEntityConfig : IEntityTypeConfiguration<RoleEntity>
+    class RoleEntityConfig : IEntityTypeConfiguration<Role>
     {
-        public void Configure(EntityTypeBuilder<RoleEntity> builder)
+        public void Configure(EntityTypeBuilder<Role> builder)
         {
             builder.ToTable("Role");
             builder.HasKey(x => x.Id);

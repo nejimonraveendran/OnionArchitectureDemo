@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnionApp.Domain.Models.Entities
 {
-    public abstract class EntityBase
+    public abstract class Entity
     {
         public int Id { get; set; }
     }

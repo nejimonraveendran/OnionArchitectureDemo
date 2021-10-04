@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnionApp.Domain.Models.Entities
 {
-    public class RoleEntity : EntityBase
+    public class Role : Entity
     {
         public enum RolesEnum
         {
@@ -14,6 +14,6 @@ namespace OnionApp.Domain.Models.Entities
         }
 
         public string Name { get; set; }
-        public virtual ICollection<UserEntity> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace OnionApp.Infra.Db.MainDb.Config
 {
-    class UserEntityConfig : IEntityTypeConfiguration<UserEntity>
+    class UserEntityConfig : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<UserEntity> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("User");
             builder.HasKey(x => x.Id);

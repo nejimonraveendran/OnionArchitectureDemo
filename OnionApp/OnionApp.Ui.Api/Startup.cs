@@ -38,10 +38,9 @@ namespace OnionApp.Ui.Api
                 options.UseSqlServer(Configuration.GetConnectionString("MainDbContext"))
             );
 
-            services.AddScoped<UserService>();
-            services.AddScoped<IUserRepository, UserSqlRepository>();
-            services.AddScoped<IRoleRepository, RoleSqlRepository>();
-
+            services.AddScoped<UserManagementService>();
+            services.AddScoped<IUserManagementRepository, UserManagementRepository>();
+          
 
 
             services.AddScoped<IAppLogger>(x => new NLogSqlLogger(new NLogSqlOptions 
