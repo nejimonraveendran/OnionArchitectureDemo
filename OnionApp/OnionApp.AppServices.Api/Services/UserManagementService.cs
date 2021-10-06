@@ -28,11 +28,11 @@ namespace OnionApp.AppServices.Api.Services
             if (role == null)
                 throw new InvalidOperationException("Invalid role");
 
-            var newUser = new User 
-            { 
-                Name = request.Name, 
-                Role = role, 
-                DateCreated = DateTime.Now 
+            var newUser = new User
+            {
+                Name = request.Name,
+                Role = role,
+                DateCreated = DateTime.Now
             };
 
             var user = _userManagementRepository.AddUser(newUser);

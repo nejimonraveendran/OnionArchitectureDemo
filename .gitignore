@@ -38,3 +38,5 @@
 /OnionApp/OnionApp.AppServices.Queries/obj
 /OnionApp/OnionApp.Domain.Models/bin/Debug/netcoreapp3.1
 /OnionApp/OnionApp.Domain.Models/obj
+/OnionApp/OnionApp.Infra.MainDbRepository/bin/Debug/netcoreapp3.1
+/OnionApp/OnionApp.Infra.MainDbRepository/obj

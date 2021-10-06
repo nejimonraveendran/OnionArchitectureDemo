@@ -13,7 +13,6 @@ namespace OnionApp.Domain.Models.Repos
         User AddUser(User entity);
         User UpdateUser(User entity);
         User DeleteUser(User entity);
-
         Role GetRoleById(int roleId);
 
     }

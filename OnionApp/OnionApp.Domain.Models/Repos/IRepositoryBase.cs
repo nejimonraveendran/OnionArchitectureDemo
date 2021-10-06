@@ -6,6 +6,6 @@ namespace OnionApp.Domain.Models.Repos
 {
     public interface IRepositoryBase
     {
-        int SaveChanges();
+        void SaveChanges();
     }
 }

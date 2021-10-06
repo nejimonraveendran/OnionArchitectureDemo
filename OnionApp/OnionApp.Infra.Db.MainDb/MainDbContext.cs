@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
-using OnionApp.AppServices.Repository.DataInterfaces;
 using OnionApp.Infra.Db.MainDb.Config;
 using System;
 using System.IO;
 
 namespace OnionApp.Infra.Db
 {
-    public sealed class MainDbContext : DbContext, IDataContext
+    public sealed class MainDbContext : DbContext
     {
         public MainDbContext() { }
 

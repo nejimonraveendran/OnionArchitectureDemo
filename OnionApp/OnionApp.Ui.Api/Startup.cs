@@ -1,23 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using OnionApp.Infra.Db;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using OnionApp.CrossCutting.Logging.Interfaces;
-using OnionApp.CrossCutting.Logging.Implementations;
-using OnionApp.AppServices.Api;
-using OnionApp.Domain.Models.Repos;
-using OnionApp.AppServices.Repository;
 using OnionApp.AppServices.Api.Services;
-using OnionApp.AppServices.Repository.DataInterfaces;
+using OnionApp.CrossCutting.Logging.Implementations;
+using OnionApp.CrossCutting.Logging.Interfaces;
+using OnionApp.Domain.Models.Repos;
+using OnionApp.Infra.Db;
+using OnionApp.Infra.MainDbRepository;
 
 namespace OnionApp.Ui.Api
 {
@@ -34,7 +26,11 @@ namespace OnionApp.Ui.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<IDataContext, MainDbContext>(options => 
+            //services.AddDbContext<IDataContext, MainDbContext>(options => 
+            //    options.UseSqlServer(Configuration.GetConnectionString("MainDbContext"))
+            //);
+
+            services.AddDbContext<MainDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MainDbContext"))
             );
 

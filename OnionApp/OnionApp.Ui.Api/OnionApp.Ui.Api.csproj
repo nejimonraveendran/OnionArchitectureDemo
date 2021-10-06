@@ -14,10 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnionApp.AppServices.Api\OnionApp.AppServices.Api.csproj" />
-    <ProjectReference Include="..\OnionApp.AppServices.Repository\OnionApp.AppServices.Repository.csproj" />
     <ProjectReference Include="..\OnionApp.CrossCutting.Logging\OnionApp.CrossCutting.Logging.csproj" />
     <ProjectReference Include="..\OnionApp.Domain.Models\OnionApp.Domain.Models.csproj" />
     <ProjectReference Include="..\OnionApp.Infra.Db.MainDb\OnionApp.Infra.Db.MainDb.csproj" />
+    <ProjectReference Include="..\OnionApp.Infra.MainDbRepository\OnionApp.Infra.MainDbRepository.csproj" />
   </ItemGroup>
 
 
